@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<head>
+<script src="/assets/jquery.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
+<style>
+body {
+  font-family: helvetica, sans-serif;
+  margin: 0 auto;
+  max-width: 600px;
+  background: #232323;
+}
+div {
+  height: 300px;
+  background-size: cover;
+  position: relative;
+  margin: 40px 0 0 0;
+  border-radius: 12px;
+}
+h1 {
+  font-family: 'Londrina Shadow', cursive;
+  text-align: center;
+  font-size: 75px;
+  color: #aaaaaa;
+  margin: 60px 0 0 0;
+}
+h2 {
+  text-align: center;
+  color: #bbbbbb;
+  margin: 0px 0 70px 0;
+}
+p {
+  color: rgba(255,255,255,1);
+  background: black;
+  background: linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -webkit-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  padding: 10px;
+  line-height: 28px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 30px;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+}
+
+small {
+  opacity: 0;
+}
+ul {
+  text-align: center;
+  }
+  
+li {
+  display: inline;
+  }
+.show-description p {
+  height: 150px;
+}
+
+.show-description small {
+  opacity: 1;
+}
+
+.price {
+  float: right;
+}
+@media (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 20px 0 30px 0;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-size: 16px;
+  }
+  ul {
+    padding: 10px;
+    background: rgba(100,100,100,0.8);
+    text-align: center;
+  }
+  li {
+    display: inline;
+    padding: 0px 10px 0px 10px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>esha's restaurant</h1>
+<h2>a New York City eatery</h2>
+<ul>
+  <li><button onclick=Appetizers()>Appetizers</button></li>
+  <li><button onclick=Entrees()>Entrees</button></li>
+  <li><button onclick=Desserts()>Desserts</button></li>
+</ul>
+<div id="food"></div>
+
+<script>
+AppetizersImages = [
+  'url("https://images-na.ssl-images-amazon.com/images/I/51OmZ63GhrL.jpg")',
+	'url("https://static.olocdn.net/menu/applebees/ef0be810e965d2ef8ade562baf084952.jpg")',
+	'url("https://img.taste.com.au/aX7OeLAg/w643-h428-cfill-q90/taste/2017/10/brie-caramelised-onion-pull-apart-bread-taste_1980x1320-131707-1.jpg")',
+]
+EntreesImages = [
+  'url("https://cdn.shopify.com/s/files/1/1228/3124/products/photo_porterhouse_steak_bdbaef5e-7c42-4893-ae30-ea77646eb48f_1024x1024.jpg?v=1463010050")',
+	'url("http://finedininglovers.cdn.crosscast-system.com/BlogPost/l_1577_grilled-salmon-picnic-vegetables-shrimps-CUT1.jpg")',
+	'url("https://cdn.firstcrycdn.com/2018/04/275882210-H.jpg")',
+]
+DessertsImages = [
+  'url("https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2018/03/white-chocolate-cheesecake.jpg?itok=XQl-AiFV")',
+	'url("https://tastykitchen.com/recipes/wp-content/uploads/sites/2/2016/09/Molten-Lava-Cake-by-Fanny-Oh-Sweet-Day-410x273.jpg")',
+	'url("http://archeddoorway.com/wp-content/uploads/2013/01/seven-scoops-of-ice-cream-with-berries-600x350.jpg")',
+]
+	AppetizersDivs = [
+      '<div class="item"><p>Mozzarella Sticks <span class="price">$5</span><br /><small>One of the classic appetizers is our warm freshly made mozzarella sticks with cheese melting in your mouth with every bite. </small></p></div>',
+			'<div class="item"><p>Chicken Salad<span class="price">$12.99</span><br /><small>Our salad offers the fresh vegetables grown in our garden with chicken and a dressing of your choice. </small></p></div>',
+			'<div class="item"><p>Pull Apart Bread <span class="price">$10.99</span><br /><small>A freshly baked caramelised onion and cheese pull apart bread.</small></p></div>',
+]
+EntreesDivs = [
+			'<div class="item"><p>Steak<span class="price">$49.99</span><br /><small>Our delicious steak comes with the side of a baked potato and vegetables. </small></p></div>',
+			'<div class="item"><p>Grilled Salmon<span class="price">$25</span><br /><small>Our grilled salmon comes with the side of srimp(optional) and steamed vegetables.</small></p></div>',
+			'<div class="item"><p>Pasta <span class="price">$20</span><br /><small>Our pasta comes with mozzarella cheese and freshly made tomato sauce.</small></p></div>',
+]
+DessertsDivs = [
+      '<div class="item"><p>Cheesecake<span class="price">$8</span><br /><small>Our amazing cheesecake comes with the side of whipped cream and a strawberry covered in chocolate. </small></p></div>',
+      '<div class="item"><p>Lava Cake<span class="price">$8</span><br /><small>Cut into our warm chocolate cake for a sweet chocolate filling to ooze out topped off with icing sugar.</small></p></div>',
+      '<div class="item"><p>Ice Cream<span class="price">$8</span><br /><small>We have a variety of ice cream flavors that come with toppings of your choice (optional).</small></p></div>',
+]
+
+function Appetizers() {
+   Appetizers = document.getElementById("food")
+   Appetizers.innerHTML = ''
+    Appetizers.innerHTML += AppetizersDivs[0]
+    Appetizers.innerHTML += AppetizersDivs[1]
+    Appetizers.innerHTML += AppetizersDivs[2]
+	//alert("Appetizers")
+	items = document.getElementsByClassName("item")
+	for (i=0; i<3; i=i+1) {
+		items[i].style.background = AppetizersImages[i]
+		items[i].style.backgroundSize = '100% 100%'
+}  
+
+}
+function Entrees() {
+   Entrees = document.getElementById("food")
+   Entrees.innerHTML = ''
+    Entrees.innerHTML += EntreesDivs[0]
+    Entrees.innerHTML += EntreesDivs[1]
+    Entrees.innerHTML += EntreesDivs[2]
+	//alert("Entrees")
+	items = document.getElementsByClassName("item")
+for (i=0; i<3; i=i+1) {
+		items[i].style.background = EntreesImages[i]
+		items[i].style.backgroundSize = '100% 100%'
+}  
+
+
+}
+function Desserts() {
+   Desserts = document.getElementById("food")
+   Desserts.innerHTML = ''
+    Desserts.innerHTML += DessertsDivs[0]
+    Desserts.innerHTML += DessertsDivs[1]
+    Desserts.innerHTML += DessertsDivs[2]
+	//alert("Desserts")
+	items = document.getElementsByClassName("item")
+	for (i=0; i<3; i=i+1) {
+		items[i].style.background = DessertsImages[i]
+		items[i].style.backgroundSize = '100% 100%'
+}  
+
+}
+
+  $('div').on('click', function() {
+      $(this).toggleClass('show-description');
+  });
+</script>
+
+</body>
+ 
