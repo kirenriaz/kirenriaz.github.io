@@ -130,27 +130,27 @@ DessertsImages = [
 	'url("http://archeddoorway.com/wp-content/uploads/2013/01/seven-scoops-of-ice-cream-with-berries-600x350.jpg")',
 ]
 	AppetizersDivs = [
-      '<div class="item"><p>Mozzarella Sticks <span class="price">$5</span><br /><small>One of the classic appetizers is our warm freshly made mozzarella sticks with cheese melting in your mouth with every bite. </small></p></div>',
-			'<div class="item"><p>Chicken Salad<span class="price">$12.99</span><br /><small>Our salad offers the fresh vegetables grown in our garden with chicken and a dressing of your choice. </small></p></div>',
-			'<div class="item"><p>Pull Apart Bread <span class="price">$10.99</span><br /><small>A freshly baked caramelised onion and cheese pull apart bread.</small></p></div>',
+      '<div class="item"onclick=this.classList.toggle("show-description")><p>Mozzarella Sticks <span class="price">$5</span><br /><small>One of the classic appetizers is our warm freshly made mozzarella sticks with cheese melting in your mouth with every bite. </small></p></div>',
+			'<div class="item"onclick=this.classList.toggle("show-description")><p>Chicken Salad<span class="price">$12.99</span><br /><small>Our salad offers the fresh vegetables grown in our garden with chicken and a dressing of your choice. </small></p></div>',
+			'<div class="item"onclick=this.classList.toggle("show-description")><p>Pull Apart Bread <span class="price">$10.99</span><br /><small>A freshly baked caramelised onion and cheese pull apart bread.</small></p></div>',
 ]
 EntreesDivs = [
-			'<div class="item"><p>Steak<span class="price">$49.99</span><br /><small>Our delicious steak comes with the side of a baked potato and vegetables. </small></p></div>',
-			'<div class="item"><p>Grilled Salmon<span class="price">$25</span><br /><small>Our grilled salmon comes with the side of srimp(optional) and steamed vegetables.</small></p></div>',
-			'<div class="item"><p>Pasta <span class="price">$20</span><br /><small>Our pasta comes with mozzarella cheese and freshly made tomato sauce.</small></p></div>',
+			'<div class="item"onclick=this.classList.toggle("show-description")><p>Steak<span class="price">$49.99</span><br /><small>Our delicious steak comes with the side of a baked potato and vegetables. </small></p></div>',
+			'<div class="item"onclick=this.classList.toggle("show-description")><p>Grilled Salmon<span class="price">$25</span><br /><small>Our grilled salmon comes with the side of srimp(optional) and steamed vegetables.</small></p></div>',
+			'<div class="item"onclick=this.classList.toggle("show-description")><p>Pasta <span class="price">$20</span><br /><small>Our pasta comes with mozzarella cheese and freshly made tomato sauce.</small></p></div>',
 ]
 DessertsDivs = [
-      '<div class="item"><p>Cheesecake<span class="price">$8</span><br /><small>Our amazing cheesecake comes with the side of whipped cream and a strawberry covered in chocolate. </small></p></div>',
-      '<div class="item"><p>Lava Cake<span class="price">$8</span><br /><small>Cut into our warm chocolate cake for a sweet chocolate filling to ooze out topped off with icing sugar.</small></p></div>',
-      '<div class="item"><p>Ice Cream<span class="price">$8</span><br /><small>We have a variety of ice cream flavors that come with toppings of your choice (optional).</small></p></div>',
+      '<div class="item" onclick=this.classList.toggle("show-description")><p>Cheesecake<span class="price">$8</span><br /><small>Our amazing cheesecake comes with the side of whipped cream and a strawberry covered in chocolate. </small></p></div>',
+      '<div class="item" onclick=this.classList.toggle("show-description")><p>Lava Cake<span class="price">$8</span><br /><small>Cut into our warm chocolate cake for a sweet chocolate filling to ooze out topped off with icing sugar.</small></p></div>',
+      '<div class="item"onclick=this.classList.toggle("show-description")><p>Ice Cream<span class="price">$8</span><br /><small>We have a variety of ice cream flavors that come with toppings of your choice (optional).</small></p></div>',
 ]
 
 function Appetizers() {
-   Appetizers = document.getElementById("food")
-   Appetizers.innerHTML = ''
-    Appetizers.innerHTML += AppetizersDivs[0]
-    Appetizers.innerHTML += AppetizersDivs[1]
-    Appetizers.innerHTML += AppetizersDivs[2]
+   Appetizer = document.getElementById("food")
+   Appetizer.innerHTML = ''
+    Appetizer.innerHTML += AppetizersDivs[0]
+    Appetizer.innerHTML += AppetizersDivs[1]
+    Appetizer.innerHTML += AppetizersDivs[2]
 	//alert("Appetizers")
 	items = document.getElementsByClassName("item")
 	for (i=0; i<3; i=i+1) {
@@ -160,11 +160,11 @@ function Appetizers() {
 
 }
 function Entrees() {
-   Entrees = document.getElementById("food")
-   Entrees.innerHTML = ''
-    Entrees.innerHTML += EntreesDivs[0]
-    Entrees.innerHTML += EntreesDivs[1]
-    Entrees.innerHTML += EntreesDivs[2]
+   Entree = document.getElementById("food")
+   Entree.innerHTML = ''
+    Entree.innerHTML += EntreesDivs[0]
+    Entree.innerHTML += EntreesDivs[1]
+    Entree.innerHTML += EntreesDivs[2]
 	//alert("Entrees")
 	items = document.getElementsByClassName("item")
 for (i=0; i<3; i=i+1) {
@@ -175,11 +175,11 @@ for (i=0; i<3; i=i+1) {
 
 }
 function Desserts() {
-   Desserts = document.getElementById("food")
-   Desserts.innerHTML = ''
-    Desserts.innerHTML += DessertsDivs[0]
-    Desserts.innerHTML += DessertsDivs[1]
-    Desserts.innerHTML += DessertsDivs[2]
+   Dessert = document.getElementById("food")
+   Dessert.innerHTML = ''
+    Dessert.innerHTML += DessertsDivs[0]
+    Dessert.innerHTML += DessertsDivs[1]
+    Dessert.innerHTML += DessertsDivs[2]
 	//alert("Desserts")
 	items = document.getElementsByClassName("item")
 	for (i=0; i<3; i=i+1) {
@@ -188,8 +188,8 @@ function Desserts() {
 }  
 
 }
-onclick=this.classList.toggle("show-description")
-  }
+
+
  
 </script>
 
