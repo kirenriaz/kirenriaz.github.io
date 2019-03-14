@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="/assets/jquery.js"></script>
 <link href='https://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
 <style>
@@ -111,6 +110,7 @@ li {
   <li><button onclick=Appetizers()>Appetizers</button></li>
   <li><button onclick=Entrees()>Entrees</button></li>
   <li><button onclick=Desserts()>Desserts</button></li>
+  <li><button onclick=Drinks()>Drinks</button></li>
 </ul>
 <div id="food"></div>
 
@@ -130,6 +130,12 @@ DessertsImages = [
 	'url("https://tastykitchen.com/recipes/wp-content/uploads/sites/2/2016/09/Molten-Lava-Cake-by-Fanny-Oh-Sweet-Day-410x273.jpg")',
 	'url("http://archeddoorway.com/wp-content/uploads/2013/01/seven-scoops-of-ice-cream-with-berries-600x350.jpg")',
 ]
+
+DrinksImages = [ 
+  'url("https://polarmart.com.sg/wp-content/uploads/2018/01/sprite-canned.png")', 
+  'url("https://www.myamericanmarket.com/873-large_default/coca-cola-classic.jpg")', 
+  'url("https://www.jddist.com/content/images/thumbs/0142653.jpg")', 
+]
 	AppetizersDivs = [
       '<div class="item"onclick=this.classList.toggle("show-description")><p>Mozzarella Sticks <span class="price">$5</span><br /><small>One of the classic appetizers is our warm freshly made mozzarella sticks with cheese melting in your mouth with every bite. </small></p></div>',
 			'<div class="item"onclick=this.classList.toggle("show-description")><p>Chicken Salad<span class="price">$12.99</span><br /><small>Our salad offers the fresh vegetables grown in our garden with chicken and a dressing of your choice. </small></p></div>',
@@ -144,6 +150,11 @@ DessertsDivs = [
       '<div class="item" onclick=this.classList.toggle("show-description")><p>Cheesecake<span class="price">$8</span><br /><small>Our amazing cheesecake comes with the side of whipped cream and a strawberry covered in chocolate. </small></p></div>',
       '<div class="item" onclick=this.classList.toggle("show-description")><p>Lava Cake<span class="price">$8</span><br /><small>Cut into our warm chocolate cake for a sweet chocolate filling to ooze out topped off with icing sugar.</small></p></div>',
       '<div class="item"onclick=this.classList.toggle("show-description")><p>Ice Cream<span class="price">$8</span><br /><small>We have a variety of ice cream flavors that come with toppings of your choice (optional).</small></p></div>',
+]
+DrinksDivs = [
+      '<div class="item" onclick=this.classList.toggle("show-description")><p>Sprite<span class="price">$1.50</span><br /><small>Obey your thirst. </small></p></div>',
+      '<div class="item" onclick=this.classList.toggle("show-description")><p>Coca Cola <span class="price">$1.50</span><br /><small>Open happiness.</small></p></div>',
+      '<div class="item"onclick=this.classList.toggle("show-description")><p>Brisk Iced Tea<span class="price">$1.50</span><br /><small>Take a risk, have a Brisk.</small></p></div>',
 ]
 
 function Appetizers() {
@@ -189,10 +200,22 @@ function Desserts() {
 }  
 
 }
+function Drinks() {
+   Drink = document.getElementById("food")
+   Drink.innerHTML = ''
+    Drink.innerHTML += DrinksDivs[0]
+    Drink.innerHTML += DrinksDivs[1]
+    Drink.innerHTML += DrinksDivs[2]
+	//alert("Drinks")
+	items = document.getElementsByClassName("item")
+	for (i=0; i<3; i=i+1) {
+		items[i].style.background = DrinksImages[i]
+		items[i].style.backgroundSize = '100% 100%'
+}  
+}
 
 
  
 </script>
 
 </body>
- 
